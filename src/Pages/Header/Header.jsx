@@ -3,7 +3,15 @@ import { Link } from 'react-router';
 import { AuthContext } from '../../Provider/Authcontext';
 
 const Header = () => {
-    const {user} = use(AuthContext)
+    const {user,logOut} = use(AuthContext);
+    const handleSignOut = () =>{
+        logOut().then(()=>{
+            alert('log out successfully')
+        }).catch(error=>{
+            const errorMessage = error.message;
+            console.log(errorMessage)
+        })
+    }
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm">
@@ -44,8 +52,14 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className='btn' to={'/login'} >Log in</Link>
+                    {
+                        user?(<button onClick={handleSignOut} className='btn'>Log out</button>) : (<Link className='btn' to={'/login'} >Log in</Link>) 
+                    }
+                    
                     <div>{user && user.email}</div>
+                    {
+                        user && <img src={user.photoURL} alt="" />
+                    }
                 </div>
             </div>
         </div>
