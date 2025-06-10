@@ -3,6 +3,15 @@ import Home from "../Pages/Home";
 import Mainlayout from "../Pages/Mainlayout/Mainlayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import Assignments from "../Pages/Assignments/Assignments";
+import PendingAssignment from "../Pages/PendingAssignment/PendingAssignment";
+import PrivateRoute from "../Provider/PrivateRoute/PrivateRoute";
+import CreateAssignment from "../Pages/CreateAssignment/CreateAssignment";
+import MyAttemptedAssignments from "../Pages/MyAttemptedAssignments/MyAttemptedAssignments";
+import Terms from "../Pages/Footer/Terms";
+import ContactInfo from "../Pages/Footer/ContactInfo";
+import AssignmentDetails from "../Pages/AssignmentDetails/AssignmentDetails";
+import TakeAssignment from "../Pages/AssignmentDetails/TakeAssignment";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +30,50 @@ export const router = createBrowserRouter([
                 path:"/register",
                 element: <Register></Register>
             },
+            {
+                path:"/assignments",
+                element: <Assignments></Assignments>,
+                loader:()=>fetch('http://localhost:3000/assignments')
+            },
+            {
+                path:"/assignments/:id",
+                element: <PrivateRoute>
+                    <AssignmentDetails></AssignmentDetails>
+                </PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:3000/assignments/${params.id}`)
+            },
+            {
+                path:"/takeAssignment",
+                element:<TakeAssignment></TakeAssignment>,
+                
+            },
+            {
+                path:"/createAssignment",
+                element: <PrivateRoute>
+                    <CreateAssignment></CreateAssignment>
+                </PrivateRoute>
+            },
+            {
+                path:"/myAttemptedAssignments",
+                element: <PrivateRoute>
+                    <MyAttemptedAssignments></MyAttemptedAssignments>
+                </PrivateRoute>
+            },
+            {
+                path:"/pendingAssignments",
+                element:<PrivateRoute>
+                     <PendingAssignment></PendingAssignment>
+                </PrivateRoute>
+            },
+             {
+                path:"/terms",
+                element: <Terms></Terms>
+            },
+             {
+                path:"/contact",
+                element: <ContactInfo></ContactInfo>
+            },
+           
         ]
     }
 ])

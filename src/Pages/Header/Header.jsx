@@ -1,13 +1,14 @@
 import React, { use } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../../Provider/Authcontext';
+import logo from '../../../src/assets/logo.png'
 
 const Header = () => {
-    const {user,logOut} = use(AuthContext);
-    const handleSignOut = () =>{
-        logOut().then(()=>{
+    const { user, logOut } = use(AuthContext);
+    const handleSignOut = () => {
+        logOut().then(() => {
             alert('log out successfully')
-        }).catch(error=>{
+        }).catch(error => {
             const errorMessage = error.message;
             console.log(errorMessage)
         })
@@ -23,43 +24,47 @@ const Header = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
+                            <Link to={'/'} >Home</Link>
+                            <Link to={'/assignments'} >Assignments</Link>
+                            {user && <Link to={'/pendingAssignments'} >Pending Assignments</Link>}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <img className='w-[100px]' src={logo} alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><a>Item 3</a></li>
+                    <ul className="menu menu-horizontal space-x-5 px-1">
+                        <Link to={'/'} >Home</Link>
+                        <Link to={'/assignments'} >Assignments</Link>
+                         {user && <Link to={'/pendingAssignments'} >Pending Assignments</Link>}
                     </ul>
                 </div>
                 <div className="navbar-end">
+
                     {
-                        user?(<button onClick={handleSignOut} className='btn'>Log out</button>) : (<Link className='btn' to={'/login'} >Log in</Link>) 
+                        user &&
+                            <details className="dropdown">
+                                <summary className="btn m-1 relative group">
+                                    <img className=' ' src={user.photoURL} alt="" />
+                                    <div className='absolute w-full h-full -bottom-10 opacity-0 group-hover:bottom-0 group-hover:opacity-100 bg-black/20 flex justify-center items-center transition-all duration-300'>
+                                        <h2 className='text-white font-bold'>{user.displayName}</h2>
+
+                                    </div>
+
+                                </summary>
+                                <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 space-y-3 shadow-sm">
+                                  <Link to={'/createAssignment'} className='btn btn-primary' >Create Assignment </Link>
+                                  <Link to={'/myAttemptedAssignments'} className='btn btn-primary' >My Attempted Assignments </Link>
+
+                                </ul>
+                            </details>
+                            
                     }
-                    
+
                     <div>{user && user.email}</div>
                     {
-                        user && <img src={user.photoURL} alt="" />
+                        user ? (<button onClick={handleSignOut} className='btn'>Log out</button>) : (<Link className='btn' to={'/login'} >Log in</Link>)
                     }
+
                 </div>
             </div>
         </div>
