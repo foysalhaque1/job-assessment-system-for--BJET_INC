@@ -3,7 +3,7 @@ import { Link, useLoaderData } from 'react-router';
 
 const AssignmentDetails = () => {
     const data = useLoaderData();
-    console.log(data)
+    console.log(data._id)
     return (
         <div>
             <div className="hero bg-amber-100 min-h-screen">
@@ -24,7 +24,7 @@ const AssignmentDetails = () => {
                           
                             <p>Name: {data.name}</p>
                             <p>Email: {data.email}</p>
-                            <Link to={'/takeAssignment'} className='btn btn-secondary'>Take Assignment</Link>
+                            <Link to={`/takeAssignment/${data._id}`} className='btn btn-secondary'>Take Assignment</Link>
                            
 
 

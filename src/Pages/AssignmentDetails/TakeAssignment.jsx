@@ -1,41 +1,49 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../Provider/Authcontext';
 import Swal from 'sweetalert2';
+import { useParams } from 'react-router';
 
 const TakeAssignment = () => {
-      const { user } = use(AuthContext);
-      const formSubmit = (e) => {
+    const { user } = use(AuthContext);
+    const { id } = useParams();
+    const assignmentId = id;
+
+
+    const formSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
         // const email = form.email.value;
         // console.log(email)
         const formData = new FormData(form);
-        const { email, ...rest } = Object.fromEntries(formData.entries());
+        const { submittedEmail,status, ...rest } = Object.fromEntries(formData.entries());
         const userProfile = {
-            email,
+            assignmentId,
+            submittedEmail,
+            status,
             ...rest
+            
         }
-           console.log(userProfile);
-                // fetch('http://localhost:3000/assignments', {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(userProfile)
-                // }).then(res => res.json())
-                //     .then(data => {
-                //         console.log(data);
-                //         Swal.fire({
-                //             position: "top-center",
-                //             icon: "success",
-                //             title: "Your Assignment is Created Successfully",
-                //             showConfirmButton: false,
-                //             timer: 1500
-                //         });
-                //     }).catch(error => {
-                //         console.log(error)
-                //     })
-            }
+        console.log(userProfile);
+        fetch('http://localhost:3000/submittedAssignment', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userProfile)
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data);
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Your Assignment is Submitted Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }).catch(error => {
+                console.log(error)
+            })
+    }
     return (
         <div>
             <div className='p-12' >
@@ -49,7 +57,7 @@ const TakeAssignment = () => {
 
 
                             <label className="label">Title</label>
-                            <input  type="text" name='Title' className="input w-full" placeholder="Enter Title" />
+                            <input type="text" name='Title' className="input w-full" placeholder="Enter Title" />
 
 
                         </fieldset>
@@ -57,7 +65,7 @@ const TakeAssignment = () => {
 
 
                             <label className="label">Google Doc Link</label>
-                            <input type="text" name='docLink' className="input w-full" placeholder="Enter Google doc link" />
+                            <input type="url" name='docLink' className="input w-full" placeholder="Enter Google doc link" />
 
 
                         </fieldset>
@@ -65,17 +73,17 @@ const TakeAssignment = () => {
 
 
                             <label className="label">Status</label>
-                            <select  name='level' defaultValue="Pending" className="select w-full">
+                            <select name='status' defaultValue="Pending" className="select w-full">
                                 <option disabled={true}>Pick a color</option>
                                 <option>Pending</option>
                                 <option>Completed</option>
-                                
+
                             </select>
 
 
 
                         </fieldset>
-                        
+
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
 
@@ -88,15 +96,15 @@ const TakeAssignment = () => {
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
 
 
-                            <label className="label">Email</label>
-                            <input type="email" value={user && user.email} readOnly name='email' className="input font-bold text-black mb-2" placeholder="Enter Plant-Type" />
+                            <label className="label">Submitted Email</label>
+                            <input type="email" readOnly value={user?.email} name='submittedEmail' className="input font-bold text-black" placeholder="Enter Plant-Type" />
 
 
                         </fieldset>
-                        
-                       
+
+
                     </div>
-                   
+
                     <input type="submit" value="Submit" className='w-full btn space-y-2 ' />
                 </form>
             </div>

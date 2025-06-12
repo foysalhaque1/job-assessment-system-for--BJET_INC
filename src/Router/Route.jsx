@@ -12,6 +12,7 @@ import Terms from "../Pages/Footer/Terms";
 import ContactInfo from "../Pages/Footer/ContactInfo";
 import AssignmentDetails from "../Pages/AssignmentDetails/AssignmentDetails";
 import TakeAssignment from "../Pages/AssignmentDetails/TakeAssignment";
+import GiveMark from "../Pages/GiveMark/GiveMark";
 
 export const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:3000/assignments/${params.id}`)
             },
             {
-                path:"/takeAssignment",
+                path:"/takeAssignment/:id",
                 element:<TakeAssignment></TakeAssignment>,
                 
             },
@@ -57,13 +58,21 @@ export const router = createBrowserRouter([
                 path:"/myAttemptedAssignments",
                 element: <PrivateRoute>
                     <MyAttemptedAssignments></MyAttemptedAssignments>
-                </PrivateRoute>
+                </PrivateRoute>,
+               
             },
             {
                 path:"/pendingAssignments",
                 element:<PrivateRoute>
                      <PendingAssignment></PendingAssignment>
-                </PrivateRoute>
+                </PrivateRoute>,
+                loader:()=>fetch('http://localhost:3000/submittedAssignment')
+            },
+            {
+                path:'/giveMarks/:id',
+                element:<GiveMark></GiveMark>,
+                loader:({params})=>fetch(`http://localhost:3000/submittedAssignment/${params.id}`)
+
             },
              {
                 path:"/terms",
