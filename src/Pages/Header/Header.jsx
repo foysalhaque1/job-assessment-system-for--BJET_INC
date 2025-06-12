@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { AuthContext } from '../../Provider/Authcontext';
 import logo from '../../../src/assets/logo.png'
 
+
 const Header = () => {
     const { user, logOut } = use(AuthContext);
     const handleSignOut = () => {
@@ -53,7 +54,7 @@ const Header = () => {
                                 </summary>
                                 <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 space-y-3 shadow-sm">
                                   <Link to={'/createAssignment'} className='btn btn-primary' >Create Assignment </Link>
-                                  <Link to={'/myAttemptedAssignments'} className='btn btn-primary' >My Attempted Assignments </Link>
+                                  <Link  to={'/myAttemptedAssignments'} className='btn btn-primary' >My Attempted Assignments </Link>
 
                                 </ul>
                             </details>
