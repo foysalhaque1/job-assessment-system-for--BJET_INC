@@ -1,9 +1,17 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 const PendingAssignment = () => {
-    const data = useLoaderData();
-    const pendingData = data.filter(pendData=>pendData.status=="Pending");
+    const [pendingData,setPendingData] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:3000/submittedAssignment').then(res=>res.json())
+        .then(data=>{
+            const pendingData = data.filter(pendData=>pendData.status=="Pending");
+            setPendingData(pendingData)
+        })
+    },[])
+    // const data = useLoaderData();
+    
     console.log('pending data',  pendingData);
     // console.log(data)
     return (

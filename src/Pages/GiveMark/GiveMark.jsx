@@ -1,12 +1,15 @@
 import React, { use } from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../Provider/Authcontext';
 import Swal from 'sweetalert2';
 
 const GiveMark = () => {
     const data = useLoaderData();
     console.log(data);
-    const {markId} = 
+    const {id }= useParams();
+    console.log(id)
+    const navigate = useNavigate()
+  
     const { user } = use(AuthContext)
     console.log(user);
     const handleSubmit = e => {
@@ -15,7 +18,7 @@ const GiveMark = () => {
         const docLink = form.docLink.value;
         const note = form.note.value;
         const submittedEmail = form.submittedEmail.value;
-        const achievingMarks = form.achievingMarks.value;
+        const achieveingMarks = form.achieveingMarks.value;
         const feedback = form.feedback.value;
         if (!submittedEmail || !feedback) {
             Swal.fire({
@@ -30,8 +33,10 @@ const GiveMark = () => {
             doclink: docLink,
             note: note,
             submittedEmail: submittedEmail,
-            achievingMarks: achievingMarks,
+            achieveingMarks: achieveingMarks,
             feedback: feedback,
+            assignmentId:data.assignmentId,
+            examinner:user.email
         }
         console.log(updateProfile);
         fetch('http://localhost:3000/giveMarks', {
@@ -47,6 +52,8 @@ const GiveMark = () => {
                 title: "Your Assessment is submitted successfully",
                 icon: "success",
                 draggable: true
+            }).then(()=>{
+                navigate('/pendingAssignments')
             });
 
         }).catch(error => {
@@ -98,7 +105,7 @@ const GiveMark = () => {
 
 
                             <label className="label">Achieving Marks</label>
-                            <input disabled={data.submittedEmail === user?.email} type="text" name='achievingMarks' className="input font-bold text-black" placeholder="Enter marks" />
+                            <input disabled={data.submittedEmail === user?.email} type="text" name='achieveingMarks' className="input font-bold text-black" placeholder="Enter marks" />
 
 
                         </fieldset>

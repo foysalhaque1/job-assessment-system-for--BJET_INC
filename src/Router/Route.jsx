@@ -45,7 +45,9 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/takeAssignment/:id",
-                element:<TakeAssignment></TakeAssignment>,
+                element:<PrivateRoute>
+                    <TakeAssignment></TakeAssignment>
+                </PrivateRoute>,
                 
             },
             {
@@ -70,7 +72,9 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/giveMarks/:id',
-                element:<GiveMark></GiveMark>,
+                element:<PrivateRoute>
+                    <GiveMark></GiveMark>
+                </PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:3000/submittedAssignment/${params.id}`)
 
             },
