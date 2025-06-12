@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 const GiveMark = () => {
     const data = useLoaderData();
     console.log(data);
+    const {markId} = 
     const { user } = use(AuthContext)
     console.log(user);
     const handleSubmit = e => {
@@ -21,8 +22,9 @@ const GiveMark = () => {
                 icon: "error",
                 title: "Oops...",
                 text: "Fill up the marks and feedback",
-                
+
             });
+            return
         }
         const updateProfile = {
             doclink: docLink,
@@ -31,7 +33,25 @@ const GiveMark = () => {
             achievingMarks: achievingMarks,
             feedback: feedback,
         }
-        console.log(updateProfile)
+        console.log(updateProfile);
+        fetch('http://localhost:3000/giveMarks', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateProfile)
+
+        }).then(res => res.json()).then(data => {
+            console.log(data);
+            Swal.fire({
+                title: "Your Assessment is submitted successfully",
+                icon: "success",
+                draggable: true
+            });
+
+        }).catch(error => {
+            console.log(error)
+        })
 
     }
 
