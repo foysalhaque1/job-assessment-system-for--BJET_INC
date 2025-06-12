@@ -28,30 +28,13 @@ const MySubmission = ({attemptedPromise}) => {
                                 <th>
                                     {index + 1}
                                 </th>
-                                <td>
-                                    <div className="flex items-center  gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img src={user.thumbnails} alt="Avatar Tailwind CSS Component" />
-                                                   
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </td>
-                                {/* <td>
-                                    {user.thumbnails}
-                                </td> */}
+                               
+                         
                                 <td>{user.Title}</td>
-                                <td>{user.marks}</td>
-                                <td>{user.level}</td>
-                                <th className='space-x-3'>
-                                    <Link to={`/assignments/${user._id}`} ><button className="btn  btn-xs">See More</button></Link>
-                                    <Link to={`/assignments/${user._id}`} ><button className="btn  btn-xs">Update</button></Link>
-                                    <Link to={`/assignments/${user._id}`} ><button className="btn  btn-xs">Delete</button></Link>
-
-
-                                </th>
+                                <td>{user.assignmentTotalMarks}</td>
+                                <td>{user.achieveingMarks? user.achieveingMarks : 'Pending'}</td>
+                                <td>{user.feedback? user.feedback : 'Pending'}</td>
+                                
                             </tr>)
                         }
 

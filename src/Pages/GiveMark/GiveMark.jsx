@@ -113,7 +113,7 @@ const GiveMark = () => {
 
 
                             <label className="label">Feedback</label>
-                            <textarea defaultValue={data.note} name='feedback' className="textarea w-full" placeholder="Feedback"></textarea>
+                            <textarea disabled={data.submittedEmail === user?.email} name='feedback' className="textarea w-full" placeholder="Feedback"></textarea>
 
 
                         </fieldset>
@@ -122,7 +122,7 @@ const GiveMark = () => {
 
                     </div>
 
-                    <input type="submit" value="Submit" className='w-full btn space-y-2 ' />
+                    <input disabled={data.submittedEmail === user?.email} type="submit" value="Submit" className='w-full btn space-y-2 ' />
                 </form>
             </div>
         </div>

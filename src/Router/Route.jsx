@@ -13,6 +13,7 @@ import ContactInfo from "../Pages/Footer/ContactInfo";
 import AssignmentDetails from "../Pages/AssignmentDetails/AssignmentDetails";
 import TakeAssignment from "../Pages/AssignmentDetails/TakeAssignment";
 import GiveMark from "../Pages/GiveMark/GiveMark";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
                 path:"/contact",
                 element: <ContactInfo></ContactInfo>
             },
+            {
+                path:'/*',
+                element:<ErrorPage></ErrorPage>
+            }
            
         ]
     }

@@ -18,6 +18,7 @@ const Assignments = () => {
                             <th className='text-blue-500' >Title</th>
                             <th className='text-blue-500'>Marks</th>
                             <th className='text-blue-500'>Difficulty</th>
+                            <th className='text-blue-500'>Created By</th>
                             {/* <th className='text-blue-500'>Level</th> */}
                             {/* <div className='flex gap-2.5 mt-2.5'>
                                 <div>
@@ -60,6 +61,7 @@ const Assignments = () => {
                                 <td>{user.Title}</td>
                                 <td>{user.marks}</td>
                                 <td>{user.level}</td>
+                                <td>{user.email}</td>
                                 <th className='space-x-3'>
                                     <Link to={`/assignments/${user._id}`} ><button className="btn  btn-xs">See More</button></Link>
                                     <Link to={`/assignments/${user._id}`} ><button className="btn  btn-xs">Update</button></Link>
