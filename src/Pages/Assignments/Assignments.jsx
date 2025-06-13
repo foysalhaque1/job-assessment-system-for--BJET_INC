@@ -117,7 +117,7 @@ const Assignments = () => {
                                 <td>{user.email}</td>
                                 <th className='space-x-3'>
                                     <Link to={`/assignments/${user._id}`} ><button className="btn  btn-xs">See More</button></Link>
-                                    <Link to={`/assignments/${user._id}`} ><button className="btn  btn-xs">Update</button></Link>
+                                    <Link to={`/updateAssignment/${user._id}`} ><button className="btn  btn-xs">Update</button></Link>
                                     <button onClick={() => handleDelete(user._id)} className="btn  btn-xs">Delete</button>
 
 
