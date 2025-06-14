@@ -1,22 +1,25 @@
 import React, { Suspense, use } from 'react';
 import MySubmission from './MySubmission';
-import { attemptedPromise } from '../Promise/attemptedAssignment';
+
 import { AuthContext } from '../../Provider/Authcontext';
 import Loading from '../Loading/Loading';
+import useAttemptedApi from '../Hooks/useAttemptedApi';
 
 
 
 const MyAttemptedAssignments = () => {
     // const data = use(attemptedPromise);
     // console.log(data)
-    const { user } = use(AuthContext)
-    console.log(user)
+    const { user } = use(AuthContext);
+    const {attemptedPromise} = useAttemptedApi();
+    console.log(user);
+    console.log(user.accessToken)
 
     return (
         <div>
             <Suspense fallback={<Loading></Loading>}>
 
-                <MySubmission attemptedPromise={attemptedPromise(user?.email)} ></MySubmission>
+                <MySubmission attemptedPromise={attemptedPromise(user.email)} ></MySubmission>
             </Suspense>
         </div>
     );

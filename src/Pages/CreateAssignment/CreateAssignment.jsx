@@ -21,7 +21,7 @@ const CreateAssignment = () => {
             ...rest
         }
         console.log(userProfile);
-        fetch('http://localhost:3000/assignments', {
+        fetch('https://job-assessment-project-server-side.vercel.app/assignments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

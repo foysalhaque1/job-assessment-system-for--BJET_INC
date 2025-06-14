@@ -20,7 +20,7 @@ const UpdateAssignment = () => {
             email,
             ...rest
         }
-        fetch(`http://localhost:3000/update/${data._id}`, {
+        fetch(`https://job-assessment-project-server-side.vercel.app/update/${data._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -101,7 +101,7 @@ const UpdateAssignment = () => {
 
 
                             <label className="label">Email</label>
-                            <input type="email" value={user && user.email} readOnly name='email' className="input font-bold text-black" placeholder="Enter Plant-Type" />
+                            <input type="email" defaultValue={data.email} readOnly name='email' className="input font-bold text-black" placeholder="Enter Plant-Type" />
 
 
                         </fieldset>
@@ -109,7 +109,7 @@ const UpdateAssignment = () => {
 
 
                             <label className="label">Name</label>
-                            <input type="text" value={user && user.displayName} readOnly name='name' className="input font-bold text-black" />
+                            <input type="text" defaultValue={data.name} readOnly name='name' className="input font-bold text-black" />
 
 
                         </fieldset>

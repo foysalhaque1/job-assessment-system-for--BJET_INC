@@ -36,14 +36,14 @@ export const router = createBrowserRouter([
             {
                 path:"/assignments",
                 element: <Assignments></Assignments>,
-                loader:()=>fetch('http://localhost:3000/assignments')
+                loader:()=>fetch('https://job-assessment-project-server-side.vercel.app/assignments')
             },
             {
                 path:"/assignments/:id",
                 element: <PrivateRoute>
                     <AssignmentDetails></AssignmentDetails>
                 </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:3000/assignments/${params.id}`)
+                loader:({params})=>fetch(`https://job-assessment-project-server-side.vercel.app/assignments/${params.id}`)
             },
             {
                 path:"/takeAssignment/:id",
@@ -70,14 +70,14 @@ export const router = createBrowserRouter([
                 element:<PrivateRoute>
                      <PendingAssignment></PendingAssignment>
                 </PrivateRoute>,
-                loader:()=>fetch('http://localhost:3000/submittedAssignment')
+                loader:()=>fetch('https://job-assessment-project-server-side.vercel.app/submittedAssignment')
             },
             {
                 path:'/giveMarks/:id',
                 element:<PrivateRoute>
                     <GiveMark></GiveMark>
                 </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:3000/submittedAssignment/${params.id}`)
+                loader:({params})=>fetch(`https://job-assessment-project-server-side.vercel.app/submittedAssignment/${params.id}`)
 
             },
              {
@@ -97,7 +97,7 @@ export const router = createBrowserRouter([
                 element:<PrivateRoute>
                     <UpdateAssignment></UpdateAssignment>
                 </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:3000/assignments/${params.id}`)
+                loader:({params})=>fetch(`https://job-assessment-project-server-side.vercel.app/assignments/${params.id}`)
             }
            
         ]

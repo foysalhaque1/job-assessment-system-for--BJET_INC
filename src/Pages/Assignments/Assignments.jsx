@@ -26,7 +26,7 @@ const Assignments = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/deleteAssignments/${id}`, {
+                fetch(`https://job-assessment-project-server-side.vercel.app/deleteAssignments/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json'

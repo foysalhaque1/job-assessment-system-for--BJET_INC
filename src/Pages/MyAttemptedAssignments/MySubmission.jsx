@@ -30,8 +30,8 @@ const MySubmission = ({attemptedPromise}) => {
                                 </th>
                                
                          
-                                <td>{user.Title}</td>
-                                <td>{user.assignmentTotalMarks}</td>
+                                <td>{user?.Title}</td>
+                                <td>{user?.assignmentTotalMarks}</td>
                                 <td>{user.achieveingMarks? user.achieveingMarks : 'Pending'}</td>
                                 <td>{user.feedback? user.feedback : 'Pending'}</td>
                                 

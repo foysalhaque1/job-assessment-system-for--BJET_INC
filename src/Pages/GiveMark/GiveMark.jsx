@@ -39,7 +39,7 @@ const GiveMark = () => {
             examinner:user.email
         }
         console.log(updateProfile);
-        fetch('http://localhost:3000/giveMarks', {
+        fetch('https://job-assessment-project-server-side.vercel.app/giveMarks', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

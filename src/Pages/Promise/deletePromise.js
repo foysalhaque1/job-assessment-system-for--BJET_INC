@@ -1,3 +1,3 @@
 export const deletePromise = (email) =>{
-  return  fetch(`http://localhost:3000/deleteAssignments?email=${email}`)
+  return  fetch(`https://job-assessment-project-server-side.vercel.app/deleteAssignments?email=${email}`)
 }
