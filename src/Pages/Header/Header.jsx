@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../../Provider/Authcontext';
 import logo from '../../../src/assets/logo.png'
+import DarkToggleButton from '../ThemeContext/DarkToggleButton';
 
 
 const Header = () => {
@@ -37,6 +38,7 @@ const Header = () => {
                         <Link to={'/'} >Home</Link>
                         <Link to={'/assignments'} >Assignments</Link>
                          {user && <Link to={'/pendingAssignments'} >Pending Assignments</Link>}
+                        
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -66,7 +68,9 @@ const Header = () => {
                         user ? (<button onClick={handleSignOut} className='btn'>Log out</button>) : (<Link className='btn' to={'/login'} >Log in</Link>)
                     }
 
+
                 </div>
+                 <DarkToggleButton></DarkToggleButton>
             </div>
         </div>
     );
