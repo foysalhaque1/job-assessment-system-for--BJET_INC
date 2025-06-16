@@ -10,10 +10,24 @@ const UpdateAssignment = () => {
     console.log(user)
     const data = useLoaderData();
     const [startDate, setStartDate] = useState(new Date());
+    const [numberError,setNumberError] = useState('');
+    const [descriptionError,setDescriptionError] = useState('')
     console.log(data);
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
+        const marks = form.marks.value;
+        const description = form.description.value;
+        if(isNaN(marks)){
+            return setNumberError('Enter number')
+        }else{
+            setNumberError('')
+        };
+        if(description.length<20 || description>30){
+           return setDescriptionError('enter txt from 20 to 30 characters')
+        }else{
+            setDescriptionError('')
+        }
         const formData = new FormData(form);
         const {email,...rest} = Object.fromEntries(formData.entries());
         const formInfo = {
@@ -84,7 +98,10 @@ const UpdateAssignment = () => {
 
 
                             <label className="label">Marks</label>
-                            <input defaultValue={data.marks} type="text" name='marks' className="input" placeholder="Enter Title" />
+                            <input typeof='number' defaultValue={data.marks} type="text" name='marks' className="input" placeholder="Enter Number" />
+                            {
+                                numberError && <p className='text-red-600 font-bold'>{numberError}</p>
+                            }
 
 
                         </fieldset>
@@ -93,6 +110,9 @@ const UpdateAssignment = () => {
 
                             <label className="label">Description</label>
                             <textarea defaultValue={data.description} name='description' className="textarea" placeholder="Description"></textarea>
+                            {
+                                descriptionError && <p className='text-red-500 font-bold'>{descriptionError}</p>
+                            }
 
 
                         </fieldset>

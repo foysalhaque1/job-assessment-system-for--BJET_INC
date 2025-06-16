@@ -6,9 +6,35 @@ import { AuthContext } from '../../Provider/Authcontext';
 
 
 const Assignments = () => {
+    const [query, setQuery] = useState('');
+
     const { user } = use(AuthContext)
     const info = useLoaderData();
     const [data, setData] = useState(info);
+     const handleSearch = (e) => {
+       const value = e.target.value;
+       setQuery(value);
+       const filterData = info.filter(data=>data.Title.toLowerCase().includes(value.toLowerCase()));
+       setData(filterData)
+    }
+
+    const handleEasy = () => {
+
+        fetch('https://job-assessment-project-server-side.vercel.app/assignmentLevel/Easy').then(res => res.json())
+            .then(data => setData(data));
+    }
+    const handleMedium = () => {
+
+        fetch('https://job-assessment-project-server-side.vercel.app/assignmentLevel/Medium').then(res => res.json())
+            .then(data => setData(data));
+    }
+    const handleDifficult = () => {
+
+        fetch('https://job-assessment-project-server-side.vercel.app/assignmentLevel/Difficult').then(res => res.json())
+            .then(data => setData(data));
+    }
+   
+ 
 
 
     console.log(info);
@@ -47,7 +73,7 @@ const Assignments = () => {
                                 icon: "error",
                                 title: "Oops...",
                                 text: "You can't delete",
-                                
+
                             });
                         }
                         const remainingAssignments = info.filter(dat => dat._id != id);
@@ -59,7 +85,26 @@ const Assignments = () => {
     }
     return (
         <div>
+
             <div className="overflow-x-auto mx-auto">
+                <div className='flex gap-2.5 mx-auto justify-center my-3  '>
+                    <div>
+                        <input onClick={handleEasy} type="radio" name="topping" id="Easy" />
+                        <label htmlFor='Easy'>Easy</label>
+                    </div>
+                    <div>
+                        <input onClick={handleMedium} type="radio" name="topping" id="medium" />
+                        <label htmlFor='Easy'>Medium</label>
+                    </div>
+                    <div>
+                        <input onClick={handleDifficult} type="radio" name="topping" id="difficult" />
+                        <label htmlFor='Easy'>Difficult</label>
+                    </div>
+                </div>
+                <div className='flex flex-col'>
+                    <label>Search</label>
+                    <input  placeholder='search here by title' value={query} className='border-2 space-x-2 p-2' type="text" name="search" onChange={handleSearch} />
+                </div>
                 <table className="table mx-auto">
                     {/* head */}
                     <thead className='mx-auto'>
@@ -72,21 +117,11 @@ const Assignments = () => {
                             <th className='text-blue-500'>Marks</th>
                             <th className='text-blue-500'>Difficulty</th>
                             <th className='text-blue-500'>Created By</th>
-                            {/* <th className='text-blue-500'>Level</th> */}
-                            {/* <div className='flex gap-2.5 mt-2.5'>
-                                <div>
-                                    <input onClick={handleEasy} type="radio" name="topping" id="Easy" />
-                                    <label htmlFor='Easy'>Easy</label>
-                                </div>
-                                <div>
-                                    <input onClick={handleMedium} type="radio" name="topping" id="medium" />
-                                    <label htmlFor='Easy'>Medium</label>
-                                </div>
-                                <div>
-                                    <input onClick={handleDifficult} type="radio" name="topping" id="difficult" />
-                                    <label htmlFor='Easy'>Difficult</label>
-                                </div>
-                            </div> */}
+
+                            <th>
+
+
+                            </th>
 
                         </tr>
                     </thead>

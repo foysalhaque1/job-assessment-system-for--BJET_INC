@@ -5,13 +5,29 @@ import  { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 const CreateAssignment = () => {
     const { user } = use(AuthContext);
      const [startDate, setStartDate] = useState(new Date());
+     const [errorNumber,setErrorNumber] = useState('');
+     const [errorDescription,setErrorDescription] = useState('')
     console.log(user)
     const formSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
+        const marks = form.marks.value;
+        if(isNaN(marks)){
+           return setErrorNumber('Enter number')
+        }else{
+            setErrorNumber('')
+        };
+        const description = form.description.value;
+        if(description.length < 20 ){
+          return  setErrorDescription('Enter 20 to 30 characters')
+        }else{
+            setErrorDescription('')
+        }
+        
         // const email = form.email.value;
         // console.log(email)
         const formData = new FormData(form);
@@ -84,7 +100,10 @@ const CreateAssignment = () => {
 
 
                             <label className="label">Marks</label>
-                            <input type="text" name='marks' className="input" placeholder="Enter Title" />
+                            <input type="number" name='marks' className="input" placeholder="Enter Marks" />
+                            {
+                                errorNumber && <p className='text-red-600 font-bold'>{errorNumber}</p>
+                            }
 
 
                         </fieldset>
@@ -93,6 +112,9 @@ const CreateAssignment = () => {
 
                             <label className="label">Description</label>
                             <textarea name='description' className="textarea" placeholder="Description"></textarea>
+                            {
+                                errorDescription && <p className='text-red-600 font-bold' >{errorDescription}</p>
+                            }
 
 
                         </fieldset>
