@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const PendingAssignment = () => {
     const [pendingData,setPendingData] = useState([]);
     useEffect(()=>{
-        fetch('https://job-assessment-project-server-side.vercel.app/submittedAssignment').then(res=>res.json())
+        fetch('https://job-assessment-project-server2.vercel.app/submittedAssignment').then(res=>res.json())
         .then(data=>{
             const pendingData = data.filter(pendData=>pendData.status=="Pending");
             setPendingData(pendingData)

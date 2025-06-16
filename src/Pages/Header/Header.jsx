@@ -3,13 +3,18 @@ import { Link } from 'react-router';
 import { AuthContext } from '../../Provider/Authcontext';
 import logo from '../../../src/assets/logo.png'
 import DarkToggleButton from '../ThemeContext/DarkToggleButton';
+import Swal from 'sweetalert2';
 
 
 const Header = () => {
     const { user, logOut } = use(AuthContext);
     const handleSignOut = () => {
         logOut().then(() => {
-            alert('log out successfully')
+            Swal.fire({
+                title: "Log out successfully",
+                icon: "success",
+                draggable: true
+            });
         }).catch(error => {
             const errorMessage = error.message;
             console.log(errorMessage)
@@ -37,30 +42,30 @@ const Header = () => {
                     <ul className="menu menu-horizontal space-x-5 px-1">
                         <Link to={'/'} >Home</Link>
                         <Link to={'/assignments'} >Assignments</Link>
-                         {user && <Link to={'/pendingAssignments'} >Pending Assignments</Link>}
-                        
+                        {user && <Link to={'/pendingAssignments'} >Pending Assignments</Link>}
+
                     </ul>
                 </div>
                 <div className="navbar-end space-x-2.5">
 
                     {
                         user &&
-                            <details className="dropdown">
-                                <summary className="btn m-1 relative group">
-                                    <img className=' ' src={user.photoURL} alt="" />
-                                    <div className='absolute w-full h-full -bottom-10 opacity-0 group-hover:bottom-0 group-hover:opacity-100 bg-black/20 flex justify-center items-center transition-all duration-300'>
-                                        <h2 className='text-white font-bold'>{user.displayName}</h2>
+                        <details className="dropdown">
+                            <summary className="btn m-1 relative group">
+                                <img className=' ' src={user.photoURL} alt="" />
+                                <div className='absolute w-full h-full -bottom-10 opacity-0 group-hover:bottom-0 group-hover:opacity-100 bg-black/20 flex justify-center items-center transition-all duration-300'>
+                                    <h2 className='text-white font-bold'>{user.displayName}</h2>
 
-                                    </div>
+                                </div>
 
-                                </summary>
-                                <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 space-y-3 shadow-sm">
-                                  <Link to={'/createAssignment'} className='btn btn-primary' >Create Assignment </Link>
-                                  <Link  to={'/myAttemptedAssignments'} className='btn btn-primary' >My Attempted Assignments </Link>
+                            </summary>
+                            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 space-y-3 shadow-sm">
+                                <Link to={'/createAssignment'} className='btn btn-primary' >Create Assignment </Link>
+                                <Link to={'/myAttemptedAssignments'} className='btn btn-primary' >My Attempted Assignments </Link>
 
-                                </ul>
-                            </details>
-                            
+                            </ul>
+                        </details>
+
                     }
 
                     <div>{user && user.email}</div>
@@ -70,7 +75,7 @@ const Header = () => {
 
 
                 </div>
-                 <DarkToggleButton></DarkToggleButton>
+                <DarkToggleButton></DarkToggleButton>
             </div>
         </div>
     );

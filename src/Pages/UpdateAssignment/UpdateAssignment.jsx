@@ -34,7 +34,7 @@ const UpdateAssignment = () => {
             email,
             ...rest
         }
-        fetch(`https://job-assessment-project-server-side.vercel.app/update/${data._id}`, {
+        fetch(`https://job-assessment-project-server2.vercel.app/update/${data._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

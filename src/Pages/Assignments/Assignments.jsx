@@ -20,17 +20,17 @@ const Assignments = () => {
 
     const handleEasy = () => {
 
-        fetch('https://job-assessment-project-server-side.vercel.app/assignmentLevel/Easy').then(res => res.json())
+        fetch('https://job-assessment-project-server2.vercel.app/assignmentLevel/Easy').then(res => res.json())
             .then(data => setData(data));
     }
     const handleMedium = () => {
 
-        fetch('https://job-assessment-project-server-side.vercel.app/assignmentLevel/Medium').then(res => res.json())
+        fetch('https://job-assessment-project-server2.vercel.app/assignmentLevel/Medium').then(res => res.json())
             .then(data => setData(data));
     }
     const handleDifficult = () => {
 
-        fetch('https://job-assessment-project-server-side.vercel.app/assignmentLevel/Difficult').then(res => res.json())
+        fetch('https://job-assessment-project-server2.vercel.app/assignmentLevel/Difficult').then(res => res.json())
             .then(data => setData(data));
     }
    
@@ -52,7 +52,7 @@ const Assignments = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://job-assessment-project-server-side.vercel.app/deleteAssignments/${id}`, {
+                fetch(`https://job-assessment-project-server2.vercel.app/deleteAssignments/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json'

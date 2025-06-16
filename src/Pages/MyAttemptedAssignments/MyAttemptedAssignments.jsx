@@ -10,17 +10,19 @@ import useAttemptedApi from '../Hooks/useAttemptedApi';
 const MyAttemptedAssignments = () => {
     // const data = use(attemptedPromise);
     // console.log(data)
-    const { user } = use(AuthContext);
+    const { user,loading } = use(AuthContext);
     const {attemptedPromise} = useAttemptedApi();
     console.log(user);
     console.log(user.accessToken)
 
     return (
         <div>
-            <Suspense fallback={<Loading></Loading>}>
+          {
+            !loading &&   <Suspense fallback={<Loading></Loading>}>
 
                 <MySubmission attemptedPromise={attemptedPromise(user.email)} ></MySubmission>
             </Suspense>
+          }
         </div>
     );
 };

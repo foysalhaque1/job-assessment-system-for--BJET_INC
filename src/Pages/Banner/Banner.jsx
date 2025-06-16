@@ -5,6 +5,7 @@ import img1 from '../../assets/Cyan And Blue Colorful Illustrative Coding YouTub
 import img2 from '../../assets/Blue Modern Futuristic Top Programming Language Youtube Thumbnail.png'
 import FeatureSection from './FeatureSection';
 import Faq from './Faq';
+import Faq2 from './Faq2';
 
 
 const Banner = () => {
@@ -55,7 +56,7 @@ const Banner = () => {
                 </div>
             </div>
             <FeatureSection></FeatureSection>
-            <Faq></Faq>
+            <Faq2></Faq2>
         </div>
     );
 };

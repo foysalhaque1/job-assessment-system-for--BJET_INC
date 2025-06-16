@@ -24,7 +24,7 @@ const TakeAssignment = () => {
             
         }
         console.log(userProfile);
-        fetch('https://job-assessment-project-server-side.vercel.app/submittedAssignment', {
+        fetch('https://job-assessment-project-server2.vercel.app/submittedAssignment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
