@@ -1,0 +1,27 @@
+[
+    {   
+        "q1":"How can i create assignment?",
+        "a1":"In the profile picture by clicking this anyone can find the create assignment feature."
+       
+    },
+    {   
+        "q1":"How can i submit assignment?",
+        "a1":"If anyone sign in user can see the assignment details by clicking see more button where take take assignment button is remaining. User can submit assignment by clicking take assignment button."
+       
+    },
+    {   
+        "q1":"Can any one submit assignment?",
+        "a1":"Yes the user who is ssign in can submit assignment."
+       
+    },
+    {   
+        "q1":"How can i get marks?",
+        "a1":"The other user who didn't create the assignment can give marks by give marks button ."
+       
+    },
+    {   
+        "q1":"How can get the attempted assignment which has submiited by myself",
+        "a1":"By clicking the profile picture the attepted assignment button shows.After clicking the button the user can see the attempted assignment which has been submitted by him/herself."
+       
+    }
+]

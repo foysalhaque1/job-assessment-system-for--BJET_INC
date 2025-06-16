@@ -3,13 +3,15 @@ import React from 'react';
 import { motion } from "motion/react"
 import img1 from '../../assets/Cyan And Blue Colorful Illustrative Coding YouTube Thumbnail .png'
 import img2 from '../../assets/Blue Modern Futuristic Top Programming Language Youtube Thumbnail.png'
+import FeatureSection from './FeatureSection';
+import Faq from './Faq';
 
 
 const Banner = () => {
     return (
         <div>
-            <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col lg:flex-row">
+            <div className="hero bg-base-200 min-h-screen mt-3.5 w-11/12 mx-auto">
+                <div className="hero-content  grid grid-cols-1 md:grid-cols-2">
 
                     <div className='flex-1'>
                         {/* <motion.h1
@@ -49,8 +51,11 @@ const Banner = () => {
                             className="max-w-2xl rounded-t-4xl border-s-8 shadow-2xl flex-1"
                         />
                     </div>
+                    
                 </div>
             </div>
+            <FeatureSection></FeatureSection>
+            <Faq></Faq>
         </div>
     );
 };

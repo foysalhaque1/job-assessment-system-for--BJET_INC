@@ -41,7 +41,7 @@ const Header = () => {
                         
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end space-x-2.5">
 
                     {
                         user &&
