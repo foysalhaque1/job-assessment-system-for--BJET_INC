@@ -56,7 +56,10 @@ const Banner = () => {
                 </div>
             </div>
             <FeatureSection></FeatureSection>
-            <Faq2></Faq2>
+
+            
+            
+            
         </div>
     );
 };
