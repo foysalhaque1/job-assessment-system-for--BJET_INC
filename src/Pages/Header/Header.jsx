@@ -30,10 +30,10 @@ const Header = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <Link to={'/'} >Home</Link>
-                            <Link to={'/assignments'} >Assignments</Link>
-                            {user && <Link to={'/pendingAssignments'} >Pending Assignments</Link>}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-1">
+                            <Link className='btn btn-secondary' to={'/'} >Home</Link>
+                            <Link className='btn btn-secondary' to={'/assignments'} >Assignments</Link>
+                            {user && <Link className='btn btn-secondary' to={'/pendingAssignments'} >Pending Assignments</Link>}
                         </ul>
                     </div>
                     <img className='w-[100px]' src={logo} alt="" />
