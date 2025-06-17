@@ -46,6 +46,11 @@ const Header = () => {
 
                     </ul>
                 </div>
+                
+                <DarkToggleButton></DarkToggleButton>
+                 {
+                        user ? (<button onClick={handleSignOut} className='btn'>Log out</button>) : (<Link className='btn' to={'/login'} >Log in</Link>)
+                    }
                 <div className="navbar-end space-x-2.5">
 
                     {
@@ -69,13 +74,10 @@ const Header = () => {
                     }
 
                     <div>{user && user.email}</div>
-                    {
-                        user ? (<button onClick={handleSignOut} className='btn'>Log out</button>) : (<Link className='btn' to={'/login'} >Log in</Link>)
-                    }
+                   
 
 
                 </div>
-                <DarkToggleButton></DarkToggleButton>
             </div>
         </div>
     );
