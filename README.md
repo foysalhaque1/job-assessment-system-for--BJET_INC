@@ -1,12 +1,16 @@
-# React + Vite
+# Website name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Carrier compass
 
-Currently, two official plugins are available:
+#Live url
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://job-assessment-client-side.web.app
 
-## Expanding the ESLint configuration
+#Purpose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Group assignment for job assessment
+#key features
+Create assignment,submit assignment,assignment observation by other user
+
+#npm packages
+framer motion,react icon,firebase,sweatalert2
