@@ -48,7 +48,7 @@ Users can review and grade assignments submitted by other users.
 ## 🧑‍💻 Run Locally
 
 ```bash
-git clone https://github.com/yourusername/tourism-website.git
+git clone https://github.com/foysalhaque1/job-assessment-system-for--BJET_INC.git
 cd tourism-website
 npm install
 npm run dev
