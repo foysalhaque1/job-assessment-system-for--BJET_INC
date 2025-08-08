@@ -1,13 +1,13 @@
 # React + Vite
-# 🏖️  Explore Tours
+# 🏖️ Carrier compass
 
 ## 🔍 Overview
 Project Overview 
-The Tourist Guide site is an online platform that serves as a comprehensive resource for travelers. It provides detailed information on popular destinations in Bangladesh, helping users plan their trips effectively. The site features in-depth descriptions of various tourist attractions, ensuring visitors know what to expect. Additionally, it offers insights into local culture, cuisine, and activities, enriching the travel experience. Whether you're looking for famous landmarks or hidden gems, The Tourist Guide site has everything you need to make the most of your visit to Bangladesh.
+This project is part of a job assessment for the Junior MERN Stack Developer role at BJET Inc. The goal is to develop a collaborative web application that enables users (friends) to participate in online group study by creating, completing, and grading assignments.
 
 
 ## 🌐 Live Demo
-https://tourism-management-syste-465b0.web.app/
+https://job-assessment-client-side.web.app
 
 ## 🛠️ Technologies Used
 - React.js
