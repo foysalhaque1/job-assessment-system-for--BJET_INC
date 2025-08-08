@@ -18,11 +18,15 @@ https://job-assessment-client-side.web.app
 - Express.js
 
 ## ✨ Core Features
-- User authentication
-- Book a tour with selected guide
-- Admin dashboard for managing packages and guides
-- Stripe payment integration
-- use firebase JWT
+✅ User Registration & Authentication
+✅ Create Assignments
+Any user can create new assignments and share them within the group.
+
+✅ Complete Assignments
+Users can submit their answers to available assignments.
+
+✅ Peer Grading System
+Users can review and grade assignments submitted by their peers.
 
 ## 📦 Dependencies
   "@tailwindcss/vite": "^4.1.8",
