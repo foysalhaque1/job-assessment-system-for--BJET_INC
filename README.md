@@ -9,7 +9,7 @@ This project is part of a job assessment for the Junior MERN Stack Developer rol
 ## 🌐 Live Demo
 https://job-assessment-client-side.web.app
 
-## 🛠️ Technologies Used
+## 🛠️ Main Technologies Used
 - React.js
 - Javascript
 - Tailwind CSS
@@ -55,19 +55,4 @@ npm run dev
 
 
 
-# Website name
 
-Carrier compass
-
-#Live url
-
-https://job-assessment-client-side.web.app
-
-#Purpose
-
-Group assignment for job assessment
-#key features
-Create assignment,submit assignment,assignment observation by other user
-
-#npm packages
-framer motion,react icon,firebase,sweatalert2
