@@ -19,6 +19,7 @@ https://job-assessment-client-side.web.app
 
 ## ✨ Core Features
 ✅ User Registration & Authentication
+
 ✅ Create Assignments
 Any user can create new assignments and share them within the group.
 
@@ -26,7 +27,7 @@ Any user can create new assignments and share them within the group.
 Users can submit their answers to available assignments.
 
 ✅ Peer Grading System
-Users can review and grade assignments submitted by their peers.
+Users can review and grade assignments submitted by other users.
 
 ## 📦 Dependencies
   "@tailwindcss/vite": "^4.1.8",
