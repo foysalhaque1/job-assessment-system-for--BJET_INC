@@ -30,7 +30,7 @@ Users can submit their answers to available assignments.
 Users can review and grade assignments submitted by other users.
 
 ## 📦 Dependencies
-  "@tailwindcss/vite": "^4.1.8",
+   "@tailwindcss/vite": "^4.1.8",
     "axios": "^1.9.0",
     "firebase": "^11.9.0",
     "motion": "^12.16.0",
